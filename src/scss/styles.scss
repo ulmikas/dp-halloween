@@ -1,0 +1,235 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700');
+@import 'reset';
+
+$black: #040a0a;
+$white: #fff;
+
+$link-bgs: (
+	orange: #f3a536,
+	brown: #191200,
+	darkblue: #010d19,
+	darkpurple: #190117,
+	darkgrey: #121701
+);
+
+$h1: 24px;
+$h2: 18px;
+$h3: 16px;
+
+body {
+	background: $black;
+	font-family: 'Roboto', sans-serif;
+}
+
+.page {
+	max-width: 768px;
+	margin: auto;
+}
+
+.header {
+	&__logo {
+		padding: .5em;
+		a {
+			font-size: 14px;
+			font-weight: bold;
+			text-decoration: none;
+			text-transform: uppercase;	
+
+			&, &:visited {
+				color: #fff;	
+			}
+			&:hover {
+				opacity: 0.3;
+			}
+		}	
+	}
+}
+.text-block {
+	background: url(../img/tree-bg.jpg) center no-repeat;
+	background-size: cover;
+	color: #fff;
+	padding: 15% 40px;
+	text-align: center;
+
+	&__title {
+		font-size: $h3;
+		font-weight: bold;
+		margin-bottom: 1em;
+		text-transform: uppercase;
+	}
+
+	&__text {
+		font-size: 14px;
+		line-height: 1.3em;
+		margin: auto;
+		max-width: 440px;
+	}
+}
+
+.videos {
+	align-items: flex-end;
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.video {
+	flex: 0 0 100%;
+
+	&__content {
+		background-size: cover;
+		background-repeat: none;
+		background-position: center;
+		position: relative;
+
+		iframe {
+			border: none;
+			width: 100%;
+		}
+	}
+	&__frame {
+		display: none;
+		border: none;
+		width: 100%
+	}
+	&__thumb {
+		display: block;
+		max-width: 100%;
+	}
+	&__play-btn {
+		background: rgba(0,0,0,.5);
+		border-radius: 50%;
+		display: block;
+		height: 70px;
+		left: 50%;
+		margin: -35px 0 0 -35px;
+		position: absolute;
+		top: 50%;
+		width: 70px;
+
+		&::before {
+			border: 5px solid $white;
+			border-radius: 50%;
+			content: '';
+			display: block;
+			height: 36px;
+			position: absolute;
+			top: 12px;
+			left: 12px;
+			width: 36px;
+			transition: all .15s ease-out;
+			z-index: 1;
+		}
+
+		&::after {
+			border-width: 10px 12px;
+			border-style: solid;
+			border-color: transparent transparent transparent $white;
+			content: '';
+			display: block;
+			height: 0;
+			position: absolute;
+			top: 25px;
+			left: 30px;
+			width: 0;
+			transition: all .1s ease-out;
+		}
+
+		&:hover,
+		&:active {	
+			&::before {
+				height: 40px;
+				top: 10px;
+				left: 10px;
+				width: 40px;
+				transition: all .15s ease-in;
+			}
+			&::after {
+				transform: scale(1.4);
+				left: 33px;
+				transition: all .15s ease-in;
+			}
+		}
+	}
+	&__link {}
+
+	&__content.video--playing {
+		.video__play-btn {
+			display: none;
+		}
+		.video__thumb {
+			display: none;
+		}
+		.video__frame {
+			display: block;
+		}
+	}
+
+	@media screen and (min-width: 768px) {
+		flex-basis: 50%;
+	}
+}
+
+.applink {
+	padding: 20px;
+	text-align: center;
+
+	a {
+		font-size: $h3;
+		font-weight: bold;
+		color: $white;
+		padding-right: 1em;
+		text-transform: uppercase;
+		text-decoration: none;
+		
+		&::after {
+			background: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20278%20290%22%3E%3Cpath%20fill%3D%22%23fff%22%20d%3D%22M272.6%20132.2L146.2%205.8c-3.4-3.5-8-5.5-12.9-5.5s-9.5%201.9-13%205.4c-3.4%203.4-5.3%207.9-5.3%2012.8s1.9%209.4%205.3%2012.8l95.4%2095.4H18.1C8%20126.8%200%20134.8%200%20144.9s8.1%2018.3%2018.1%2018.3h197.6l-95.4%2095.2c-7%207.2-7%2018.8%200%2025.8%203.5%203.5%208.1%205.4%2013%205.4s9.5-1.9%2012.8-5.4l126.4-126.4c3.5-3.4%205.5-8%205.5-12.9%200-4.8-1.9-9.4-5.4-12.7z%22/%3E%3C/svg%3E) center no-repeat;
+			content: '';
+			display: inline-block;
+			height: .6em;
+			margin-left: .3em;
+			padding-bottom: .1em;
+			width: .6em;
+		}
+		&:hover {
+			&::after {
+				margin-left: .5em;
+			}
+		}
+
+		.header & {
+			font-size: $h2;
+			color: $black;
+
+			&::after {
+				background: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20278%20290%22%3E%3Cpath%20fill%3D%22%23040a0a%22%20d%3D%22M272.6%20132.2L146.2%205.8c-3.4-3.5-8-5.5-12.9-5.5s-9.5%201.9-13%205.4c-3.4%203.4-5.3%207.9-5.3%2012.8s1.9%209.4%205.3%2012.8l95.4%2095.4H18.1C8%20126.8%200%20134.8%200%20144.9s8.1%2018.3%2018.1%2018.3h197.6l-95.4%2095.2c-7%207.2-7%2018.8%200%2025.8%203.5%203.5%208.1%205.4%2013%205.4s9.5-1.9%2012.8-5.4l126.4-126.4c3.5-3.4%205.5-8%205.5-12.9%200-4.8-1.9-9.4-5.4-12.7z%22/%3E%3C/svg%3E) center no-repeat;
+			}
+
+			@media screen and (min-width: 768px) {
+				font-size: $h1;
+			}
+		}
+
+		@media screen and (min-width: 768px) {
+			font-size: $h2;
+		}
+	}
+
+	@each $link-bg, $bgc in $link-bgs {
+		&--#{$link-bg} {
+			background-color: $bgc;
+		}
+	}
+}
+
+.footer {
+	color: $white;
+	font-size: 12px;
+	padding: 2em .5em;
+	text-align: center;	
+
+	@media screen and (min-width: 768px) {
+		font-size: 14px;
+	}
+}
+
