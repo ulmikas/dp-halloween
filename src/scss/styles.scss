@@ -12,10 +12,6 @@ $link-bgs: (
 	darkgrey: #121701
 );
 
-$h1: 24px;
-$h2: 18px;
-$h3: 16px;
-
 body {
 	background: $black;
 	font-family: 'Roboto', sans-serif;
@@ -52,7 +48,7 @@ body {
 	text-align: center;
 
 	&__title {
-		font-size: $h3;
+		font-size: 16px;
 		font-weight: bold;
 		margin-bottom: 1em;
 		text-transform: uppercase;
@@ -63,6 +59,30 @@ body {
 		line-height: 1.3em;
 		margin: auto;
 		max-width: 440px;
+	}
+	&__links {
+		display: flex;
+		justify-content: space-around;
+		align-items: center;
+		margin: 40px auto 0;
+		max-width: 520px;
+
+		a {
+			display: block;
+			margin: 0 5px;
+			max-width: 75px;
+			text-decoration: none;
+			transition: transform .1s ease-in;
+			
+			&:hover {
+				transform: scale(1.1);
+				transition: transform .15s ease-out;
+			}
+		}
+		img {
+			display: block;
+			max-width: 100%;
+		}
 	}
 }
 
@@ -175,7 +195,7 @@ body {
 	text-align: center;
 
 	a {
-		font-size: $h3;
+		font-size: 16px;
 		font-weight: bold;
 		color: $white;
 		padding-right: 1em;
@@ -198,20 +218,15 @@ body {
 		}
 
 		.header & {
-			font-size: $h2;
 			color: $black;
 
 			&::after {
 				background: url(data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20278%20290%22%3E%3Cpath%20fill%3D%22%23040a0a%22%20d%3D%22M272.6%20132.2L146.2%205.8c-3.4-3.5-8-5.5-12.9-5.5s-9.5%201.9-13%205.4c-3.4%203.4-5.3%207.9-5.3%2012.8s1.9%209.4%205.3%2012.8l95.4%2095.4H18.1C8%20126.8%200%20134.8%200%20144.9s8.1%2018.3%2018.1%2018.3h197.6l-95.4%2095.2c-7%207.2-7%2018.8%200%2025.8%203.5%203.5%208.1%205.4%2013%205.4s9.5-1.9%2012.8-5.4l126.4-126.4c3.5-3.4%205.5-8%205.5-12.9%200-4.8-1.9-9.4-5.4-12.7z%22/%3E%3C/svg%3E) center no-repeat;
 			}
-
-			@media screen and (min-width: 768px) {
-				font-size: $h1;
-			}
 		}
 
 		@media screen and (min-width: 768px) {
-			font-size: $h2;
+			font-size: 18px;
 		}
 	}
 

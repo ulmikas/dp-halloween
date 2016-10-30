@@ -28,7 +28,7 @@ module.exports = {
       {
         test: /\.(jpe?g|png|gif|svg)$/i,
         loaders: [
-          'file?hash=sha512&digest=hex&name=./img/[hash].[ext]',
+          'file?hash=sha512&digest=hex&name=img/[hash][name].[ext]',
           'image-webpack?bypassOnDebug&optimizationLevel=7&interlaced=false',
         ],
       },
@@ -52,7 +52,7 @@ module.exports = {
       quality: 75,
     },
     pngquant: {
-      quality: '75-90',
+      quality: '65-90',
       speed: 4,
     },
     svgo: {
